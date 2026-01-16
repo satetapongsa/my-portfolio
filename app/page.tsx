@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useSpring, useMotionTemplate, useMotionValue } from "framer-motion";
+import { motion, useScroll, useSpring, useMotionTemplate, useMotionValue, Variants } from "framer-motion";
 import { Github, Linkedin, Mail, Terminal, Code2, Database, Cpu, Layers, Server, ArrowDown, ExternalLink, Briefcase, User, Code, FolderGit2 } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState, useEffect, MouseEvent } from "react";
@@ -67,8 +67,14 @@ const config = {
 };
 
 // --- ANIMATION VARIANTS ---
-const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
-const staggerContainer = { visible: { transition: { staggerChildren: 0.15 } } };
+const fadeInUp: Variants = { 
+  hidden: { opacity: 0, y: 30 }, 
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } 
+};
+
+const staggerContainer: Variants = { 
+  visible: { transition: { staggerChildren: 0.15 } } 
+};
 
 export default function Home() {
   const containerRef = useRef(null);
