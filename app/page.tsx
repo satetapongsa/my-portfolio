@@ -8,7 +8,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 // --- CONFIGURATION (แก้ไขข้อมูลส่วนตัวตรงนี้) ---
 const config = {
-  name: "DevName",
+  name: "ANMUM",
   titles: [
     "Full Stack Developer", 2000,
     "UI/UX Enthusiast", 2000,
@@ -18,9 +18,9 @@ const config = {
   bio_short: "เปลี่ยนไอเดียให้เป็น Reality ด้วย Code คุณภาพสูง หลงใหลใน Performance และ User Experience ที่ยอดเยี่ยม",
   bio_long: "ผมคือ Developer ที่เชื่อว่า 'Code ที่ดีคือศิลปะ' ด้วยประสบการณ์ในการออกแบบระบบตั้งแต่ระดับ Microservices ไปจนถึง Pixel-Perfect Frontend ผมพร้อมที่จะรับมือกับความท้าทายทางเทคนิคที่ซับซ้อน และส่งมอบโซลูชันที่เหนือความคาดหมาย",
   links: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    email: "mailto:your@email.com",
+    github: "https://github.com/satetapongsa",
+    linkedin: "https://linkedin.com/in/satetapongsa",
+    email: "mailto:satetapongs@email.com",
   },
   experience: [
     {
@@ -285,7 +285,7 @@ function DevLogo() {
     idle: { pathLength: 1, opacity: 0.8 },
     hover: { pathLength: [0, 1], opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } }
   };
-  
+
   return (
     <div className="fixed top-6 left-6 z-50 mix-blend-screen pointer-events-auto">
       <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-12 h-12 cursor-pointer" variants={variants} initial="idle" animate="idle" whileHover="hover">
