@@ -8,7 +8,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 // --- CONFIGURATION (แก้ไขข้อมูลส่วนตัวตรงนี้) ---
 const config = {
-  name: "ANMUM",
+  name: "Satetapong",
   titles: [
     "Full Stack Developer", 2000,
     "UI/UX Enthusiast", 2000,
