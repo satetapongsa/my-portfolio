@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useSpring, useMotionTemplate, useMotionValue, Variants, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, Mail, Terminal, Code2, Database, Cpu, Layers, Server, ArrowDown, ExternalLink, Briefcase, User, Code, FolderGit2, MessageSquareQuote, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Mail, Terminal, Code2, Database, Cpu, Layers, Server, ArrowDown, ExternalLink, Briefcase, User, Code, FolderGit2, MessageSquareQuote, ArrowUp, Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState, useEffect, MouseEvent, useCallback } from "react";
 import { TypeAnimation } from 'react-type-animation';
@@ -11,7 +11,7 @@ import type { Engine } from "tsparticles-engine";
 
 // --- CONFIGURATION (แก้ไขข้อมูลส่วนตัวตรงนี้) ---
 const config = {
-  name: "DevName",
+  name: "SATETAPONG",
   titles: [
     "Full Stack Developer", 2000,
     "UI/UX Enthusiast", 2000,
@@ -21,9 +21,11 @@ const config = {
   bio_short: "เปลี่ยนไอเดียให้เป็น Reality ด้วย Code คุณภาพสูง หลงใหลใน Performance และ User Experience ที่ยอดเยี่ยม",
   bio_long: "ผมคือ Developer ที่เชื่อว่า 'Code ที่ดีคือศิลปะ' ด้วยประสบการณ์ในการออกแบบระบบตั้งแต่ระดับ Microservices ไปจนถึง Pixel-Perfect Frontend ผมพร้อมที่จะรับมือกับความท้าทายทางเทคนิคที่ซับซ้อน และส่งมอบโซลูชันที่เหนือความคาดหมาย",
   links: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    email: "mailto:your@email.com",
+    github: "https://github.com/satetapongsa",
+    linkedin: "https://www.linkedin.com/in/satetapong-sanguansuk-a5a539389/",
+    instagram: "https://www.instagram.com/manhideyi/",
+    facebook: "https://www.facebook.com/wirburus.h.ng.lok.sinangein.kheiyw/",
+    email: "mailto:satetapongs@email.com",
   },
   stats: [
     { label: "Years Experience", value: "5+" },
@@ -53,7 +55,6 @@ const config = {
       icon: <Cpu size={24} />,
     },
   ],
-  // 🗂️ Skills แบบจัดกลุ่ม (Categorized Skills)
   skillCategories: [
     {
       title: "Frontend powerhouse",
@@ -116,7 +117,6 @@ const config = {
       link: "#", github: "#", featured: false
     },
   ],
-  // 💬 Testimonials (เสียงตอบรับ)
   testimonials: [
     {
       name: "Sarah Johnson", role: "CTO at StartupX",
@@ -158,7 +158,6 @@ export default function Home() {
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-
   return (
     <main ref={containerRef} onMouseMove={handleMouseMove} className="min-h-screen bg-[#050505] text-white relative overflow-hidden scroll-smooth selection:bg-purple-500/30">
       
@@ -167,7 +166,6 @@ export default function Home() {
 
       {/* --- 🌟 BACKGROUND SYSTEMS --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-          {/* ✨ Particles System */}
            <Particles
             id="tsparticles"
             init={particlesInit}
@@ -177,15 +175,15 @@ export default function Home() {
               fpsLimit: 120,
               interactivity: {
                 events: {
-                  onHover: { enable: true, mode: "grab" }, // เมาส์ดูดอนุภาค
+                  onHover: { enable: true, mode: "grab" },
                 },
                 modes: { grab: { distance: 150, links: { opacity: 0.5 } } },
               },
               particles: {
-                color: { value: ["#a855f7", "#3b82f6"] }, // สีม่วง/ฟ้า
+                color: { value: ["#a855f7", "#3b82f6"] },
                 links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.1, width: 1 },
                 move: { enable: true, speed: 1, direction: "none", outModes: { default: "bounce" } },
-                number: { density: { enable: true, area: 800 }, value: 60 }, // จำนวนอนุภาค
+                number: { density: { enable: true, area: 800 }, value: 60 },
                 opacity: { value: 0.3 },
                 shape: { type: "circle" },
                 size: { value: { min: 1, max: 3 } },
@@ -194,8 +192,6 @@ export default function Home() {
             }}
             className="absolute inset-0 z-0"
           />
-          
-          {/* Grid & Mouse Spotlight */}
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(to right, #222 1px, transparent 1px), linear-gradient(to bottom, #222 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
           <Spotlight mouseX={mouseX} mouseY={mouseY} />
       </div>
@@ -218,8 +214,8 @@ export default function Home() {
         
         {/* --- 🦸‍♂️ SECTION 1: HERO --- */}
         <section className="min-h-screen flex flex-col justify-center items-center text-center pt-20 pb-20 relative">
-           {/* (เนื้อหา Hero เหมือนเดิม) */}
            <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="space-y-8 relative z-20">
+              
               <motion.div variants={fadeInUp} whileHover={{ scale: 1.05 }} className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/50 border border-green-500/30 shadow-[0_0_15px_rgba(34,197,94,0.2)] backdrop-blur-md text-sm text-green-400 font-mono cursor-crosshair">
                 <span className="relative flex h-3 w-3">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -227,6 +223,7 @@ export default function Home() {
                 </span>
                 <span>System Online. Ready to Code.</span>
               </motion.div>
+
               <div className="space-y-2">
                  <motion.h1 variants={fadeInUp} className="text-7xl md:text-9xl font-extrabold tracking-tighter">
                    Hi, I'm <span className="relative inline-block">
@@ -239,11 +236,23 @@ export default function Home() {
                     <TypeAnimation sequence={config.titles} wrapper="span" speed={50} repeat={Infinity} className="font-bold text-purple-400"/>
                  </motion.div>
               </div>
+
               <motion.p variants={fadeInUp} className="max-w-2xl mx-auto text-gray-400 text-xl leading-relaxed font-light">{config.bio_short}</motion.p>
-              <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-5 pt-10">
+              
+              {/* ✅✅✅ NEW: SOCIAL BAR ABOVE BUTTONS ✅✅✅ */}
+              <motion.div variants={fadeInUp} className="flex gap-6 justify-center items-center mt-4 mb-4">
+                  <SocialIconBtn href={config.links.github} icon={<Github size={22} />} />
+                  <SocialIconBtn href={config.links.linkedin} icon={<Linkedin size={22} />} />
+                  <SocialIconBtn href={config.links.facebook} icon={<Facebook size={22} />} />
+                  <SocialIconBtn href={config.links.instagram} icon={<Instagram size={22} />} />
+              </motion.div>
+
+              {/* CTAs */}
+              <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-5">
                 <MainButton href="#projects" icon={<Code />} label="View My Work" primary />
                 <MainButton href={config.links.email} icon={<Mail />} label="Get In Touch" />
               </motion.div>
+
            </motion.div>
            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, 15, 0] }} transition={{ delay: 2.5, duration: 2, repeat: Infinity }} className="absolute bottom-10 text-gray-500 flex flex-col items-center gap-2">
               <span className="text-xs font-mono uppercase tracking-widest">Scroll Down</span><ArrowDown size={24} className="text-purple-500"/>
@@ -257,12 +266,10 @@ export default function Home() {
           </motion.div>
         </section>
 
-        {/* --- 🧠 SECTION 2: ABOUT & CATEGORIZED SKILLS (NEW STRUCTURE) --- */}
+        {/* --- 🧠 SECTION 2: ABOUT & CATEGORIZED SKILLS --- */}
         <section id="about" className="py-32 relative">
           <SectionHeader title="About Me" icon={<User/>} subtitle="ทำความรู้จักตัวตนและสกิลของผม" />
-          
           <div className="grid lg:grid-cols-5 gap-12 items-start mt-16">
-            {/* Left: Bio (RGB Glow) */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="lg:col-span-2 relative group rounded-3xl p-[1px]">
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-700 pointer-events-none"></div>
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -272,18 +279,12 @@ export default function Home() {
                     <p className="text-gray-300 leading-relaxed text-lg font-light group-hover:text-white transition-colors">{config.bio_long}</p>
                 </div>
             </motion.div>
-
-            {/* Right: Skills grouped by category */}
             <div className="lg:col-span-3 space-y-8">
               {config.skillCategories.map((category, catIndex) => (
                 <motion.div key={catIndex} variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                  <h4 className="text-lg font-mono text-purple-300 mb-4 flex items-center gap-2">
-                    <span className="h-[1px] w-4 bg-purple-500 inline-block"></span> {category.title}
-                  </h4>
+                  <h4 className="text-lg font-mono text-purple-300 mb-4 flex items-center gap-2"><span className="h-[1px] w-4 bg-purple-500 inline-block"></span> {category.title}</h4>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {category.skills.map((skill, index) => (
-                      <SkillCard key={index} skill={skill} />
-                    ))}
+                    {category.skills.map((skill, index) => (<SkillCard key={index} skill={skill} />))}
                   </div>
                 </motion.div>
               ))}
@@ -321,13 +322,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* --- 💬 SECTION 4.5: TESTIMONIALS (NEW) --- */}
+        {/* --- 💬 SECTION 4.5: TESTIMONIALS --- */}
         <section className="py-32 relative border-t border-white/5">
           <SectionHeader title="Testimonials" icon={<MessageSquareQuote/>} subtitle="เสียงตอบรับจากผู้ที่เคยร่วมงานด้วย" />
            <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-16 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {config.testimonials.map((item, index) => (
-              <TestimonialCard key={index} item={item} />
-            ))}
+            {config.testimonials.map((item, index) => (<TestimonialCard key={index} item={item} />))}
           </motion.div>
         </section>
 
@@ -349,33 +348,39 @@ export default function Home() {
 }
 
 // =========================================
-// 🧩 SUB-COMPONENTS (New & Updated)
+// 🧩 SUB-COMPONENTS
 // =========================================
 
-// 💬 Testimonial Card (NEW)
+// 🆕 Social Icon Button (New Component)
+function SocialIconBtn({ href, icon }: { href: string; icon: React.ReactNode }) {
+  return (
+    <Link href={href} target="_blank" rel="noopener noreferrer">
+      <motion.div
+        whileHover={{ scale: 1.1, y: -2 }}
+        whileTap={{ scale: 0.9 }}
+        className="p-3 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 hover:border-purple-500/50 transition-all shadow-lg backdrop-blur-sm cursor-pointer"
+      >
+        {icon}
+      </motion.div>
+    </Link>
+  );
+}
+
 function TestimonialCard({ item }: { item: any }) {
   return (
     <motion.div variants={fadeInUp} className="p-8 bg-white/5 border border-white/10 rounded-3xl relative backdrop-blur-sm hover:border-purple-500/30 transition-colors">
       <div className="text-purple-500 mb-6 opacity-50"><MessageSquareQuote size={40} /></div>
       <p className="text-gray-300 italic text-lg leading-relaxed mb-6">"{item.quote}"</p>
-      <div>
-        <h4 className="text-white font-bold">{item.name}</h4>
-        <p className="text-purple-400 text-sm font-mono">{item.role}</p>
-      </div>
+      <div><h4 className="text-white font-bold">{item.name}</h4><p className="text-purple-400 text-sm font-mono">{item.role}</p></div>
     </motion.div>
   )
 }
 
-// ⬆️ Back To Top Button (NEW)
 function BackToTopButton({ isScrolled, onClick }: { isScrolled: boolean, onClick: () => void }) {
   return (
     <AnimatePresence>
       {isScrolled && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.5 }}
-          onClick={onClick}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-purple-600/80 hover:bg-purple-500 text-white rounded-full shadow-lg backdrop-blur-md border border-white/20"
-        >
+        <motion.button initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.5 }} onClick={onClick} className="fixed bottom-8 right-8 z-50 p-3 bg-purple-600/80 hover:bg-purple-500 text-white rounded-full shadow-lg backdrop-blur-md border border-white/20">
           <ArrowUp size={24} />
         </motion.button>
       )}
@@ -383,27 +388,13 @@ function BackToTopButton({ isScrolled, onClick }: { isScrolled: boolean, onClick
   )
 }
 
-// ... (ส่วนอื่นๆ DevLogo, Spotlight, SectionHeader, SkillCard, StatsItem, ServiceCard, TimelineItem, ProjectCard, MainButton, NavLink เหมือนเดิมจากเวอร์ชันล่าสุด) ...
-// 💎 Dev Logo (Fixed Variants Type)
 function DevLogo() {
-  const variants: Variants = {
-    idle: { y: [0, -5, 0], rotate: [0, 2, 0], transition: { duration: 4, repeat: Infinity, ease: "easeInOut" } },
-    hover: { scale: 1.2, rotate: 10, filter: "drop-shadow(0 0 15px rgba(139, 92, 246, 0.8))" }
-  };
-  const pathVariants: Variants = {
-    idle: { pathLength: 1, opacity: 0.8 },
-    hover: { pathLength: [0, 1], opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } }
-  };
+  const variants: Variants = { idle: { y: [0, -5, 0], rotate: [0, 2, 0], transition: { duration: 4, repeat: Infinity, ease: "easeInOut" } }, hover: { scale: 1.2, rotate: 10, filter: "drop-shadow(0 0 15px rgba(139, 92, 246, 0.8))" } };
+  const pathVariants: Variants = { idle: { pathLength: 1, opacity: 0.8 }, hover: { pathLength: [0, 1], opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } } };
   return (
     <div className="fixed top-6 left-6 z-50 mix-blend-screen pointer-events-auto">
       <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-12 h-12 cursor-pointer" variants={variants} initial="idle" animate="idle" whileHover="hover">
-        <defs>
-          <linearGradient id="dev-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#22d3ee" />
-            <stop offset="50%" stopColor="#a855f7" />
-            <stop offset="100%" stopColor="#ec4899" />
-          </linearGradient>
-        </defs>
+        <defs><linearGradient id="dev-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#22d3ee" /><stop offset="50%" stopColor="#a855f7" /><stop offset="100%" stopColor="#ec4899" /></linearGradient></defs>
         <motion.path d="M10 20L4 12L10 4" stroke="url(#dev-grad)" variants={pathVariants} />
         <motion.path d="M14 4L20 12L14 20" stroke="url(#dev-grad)" variants={pathVariants} />
         <motion.path d="M8 21L16 3" stroke="url(#dev-grad)" className="opacity-50" variants={pathVariants} />
@@ -412,7 +403,6 @@ function DevLogo() {
   );
 }
 
-// 🔦 Mouse Spotlight
 function Spotlight({ mouseX, mouseY }: { mouseX: any, mouseY: any }) {
   let springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
   let springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
@@ -420,7 +410,6 @@ function Spotlight({ mouseX, mouseY }: { mouseX: any, mouseY: any }) {
   return <motion.div className="absolute inset-0 z-10 opacity-70 mix-blend-screen" style={{ background }} />;
 }
 
-// 🏷️ Section Header
 function SectionHeader({ title, subtitle, icon } : { title: string, subtitle?: string, icon?: React.ReactNode }) {
   return (
     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="text-center space-y-4 relative z-10">
@@ -431,7 +420,6 @@ function SectionHeader({ title, subtitle, icon } : { title: string, subtitle?: s
   )
 }
 
-// 🧱 Skill Card (RGB Edition 🌈)
 function SkillCard({ skill }: { skill: any }) {
   return (
     <motion.div variants={fadeInUp} whileHover={{ scale: 1.05, y: -5 }} className="group relative rounded-2xl p-[1px] cursor-default">
@@ -445,7 +433,6 @@ function SkillCard({ skill }: { skill: any }) {
   )
 }
 
-// 📊 Stats Card
 function StatsItem({ stat, index }: { stat: any, index: number }) {
   return (
     <motion.div variants={fadeInUp} className="flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md hover:border-purple-500/50 transition-colors">
@@ -455,7 +442,6 @@ function StatsItem({ stat, index }: { stat: any, index: number }) {
   )
 }
 
-// 🛠️ Service Card
 function ServiceCard({ service, index }: { service: any, index: number }) {
   return (
     <motion.div variants={fadeInUp} whileHover={{ y: -5 }} className="group relative p-8 bg-gradient-to-b from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all">
@@ -468,7 +454,6 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
   )
 }
 
-// 📅 Timeline Item
 function TimelineItem({ job, index }: { job: any, index: number }) {
   const isEven = index % 2 === 0;
   return (
@@ -490,7 +475,6 @@ function TimelineItem({ job, index }: { job: any, index: number }) {
   )
 }
 
-// 💻 Project Card
 function ProjectCard({ project, index }: { project: any, index: number }) {
   return (
     <motion.div variants={fadeInUp} whileHover={{ y: -10 }} className={`group relative bg-[#0a0a0a] border border-white/10 rounded-3xl overflow-hidden transition-all duration-500 hover:border-purple-500/50 hover:shadow-[0_10px_30px_-10px_rgba(168,85,247,0.2)] ${project.featured ? 'md:col-span-2 md:flex md:gap-8 bg-gradient-to-br from-[#111] to-[#0a0a0a]' : ''}`}>
@@ -519,7 +503,6 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
   )
 }
 
-// 🔘 Main Button
 function MainButton({ href, icon, label, primary = false, size = "normal" } : { href: string, icon: React.ReactNode, label: string, primary?: boolean, size?: "normal" | "large" }) {
     const isLarge = size === "large";
     return (
@@ -533,7 +516,6 @@ function MainButton({ href, icon, label, primary = false, size = "normal" } : { 
     )
 }
 
-// 🧭 Nav Link
 function NavLink({ href, icon, label, external }: { href: string, icon: React.ReactNode, label: string, external?: boolean }) {
     return (
         <Link href={href} target={external ? "_blank" : undefined} className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors relative group">
