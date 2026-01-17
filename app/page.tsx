@@ -9,7 +9,6 @@ import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import type { Engine } from "tsparticles-engine";
 
-// --- CONFIGURATION (แก้ไขข้อมูลส่วนตัวตรงนี้) ---
 const config = {
   name: "SATETAPONG",
   titles: [
@@ -102,19 +101,31 @@ const config = {
       title: "Project Nexus (AI Platform)",
       description: "แพลตฟอร์ม AI-Driven Analytics แดชบอร์ดสุดล้ำ แสดงผลข้อมูล Real-time พร้อมระบบ Prediction",
       tech: ["Next.js", "Python", "TensorFlow", "Socket.io"],
-      link: "#", github: "#", featured: true
+      link: "#", 
+      github: "#", 
+      featured: true,
+      // ใส่ลิงก์รูปภาพตัวอย่าง
+      image: "https://miro.medium.com/1*aVygmDed3cSLOLPOmw-13w.png"
     },
      {
       title: "Cryptofolio v2",
       description: "Web3 Application สำหรับติดตามพอร์ตโฟลิโอคริปโต เชื่อมต่อ Wallet และแสดงกราฟราคาแบบ Interactive",
       tech: ["React", "Web3.js", "Tailwind", "Chart.js"],
-      link: "#", github: "#", featured: false
+      link: "#", 
+      github: "#", 
+      featured: false,
+      // ใส่ลิงก์รูปภาพตัวอย่าง
+      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop"
     },
     {
       title: "DevPortfolio Ultimate",
       description: "เว็บไซต์ Portfolio ปัจจุบันที่คุณกำลังเห็นอยู่นี้ เน้น Performance, Animation และ SEO",
       tech: ["Next.js 14", "Framer Motion", "React Type"],
-      link: "#", github: "#", featured: false
+      link: "#", 
+      github: "#", 
+      featured: false,
+      // ใส่ลิงก์รูปภาพตัวอย่าง
+      image: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=2070&auto=format&fit=crop"
     },
   ],
   testimonials: [
@@ -129,7 +140,6 @@ const config = {
   ]
 };
 
-// --- ANIMATION VARIANTS ---
 const fadeInUp: Variants = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
 const staggerContainer: Variants = { visible: { transition: { staggerChildren: 0.15 } } };
 
@@ -138,12 +148,10 @@ export default function Home() {
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // --- Particles Init ---
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
-  // --- Mouse Follower Logic ---
   let mouseX = useMotionValue(0);
   let mouseY = useMotionValue(0);
   function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
@@ -314,7 +322,7 @@ export default function Home() {
            </div>
         </section>
 
-        {/* --- 🚀 SECTION 4: PROJECTS --- */}
+        {/* --- 🚀 SECTION 4: PROJECTS (Updated with Images) --- */}
         <section id="projects" className="py-32 relative">
           <SectionHeader title="Featured Projects" icon={<FolderGit2/>} subtitle="ผลงานระดับ Masterpiece ที่คัดสรรมาแล้ว" />
           <div className="mt-16 grid md:grid-cols-2 gap-8">
@@ -351,7 +359,6 @@ export default function Home() {
 // 🧩 SUB-COMPONENTS
 // =========================================
 
-// 🆕 Social Icon Button (New Component)
 function SocialIconBtn({ href, icon }: { href: string; icon: React.ReactNode }) {
   return (
     <Link href={href} target="_blank" rel="noopener noreferrer">
@@ -465,25 +472,41 @@ function TimelineItem({ job, index }: { job: any, index: number }) {
         </div>
         <div className={`ml-20 md:ml-0 ${isEven ? 'md:mr-[50%]' : 'md:ml-[50%]'} md:px-8 w-full`}>
            <div className={`p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm relative hover:border-purple-500/30 transition-all group ${isEven ? 'md:text-right' : ''}`}>
-              <span className="absolute top-0 -translate-y-1/2 inline-block px-3 py-1 text-xs font-mono font-bold bg-black border border-purple-500/50 text-purple-300 rounded-full shadow-sm">{job.year}</span>
-              <h4 className="text-xl font-bold text-white mt-2 group-hover:text-purple-300 transition-colors">{job.role}</h4>
-              <h5 className="text-purple-400 font-mono text-sm mb-4">{job.company}</h5>
-              <p className="text-gray-400 text-sm leading-relaxed">{job.description}</p>
+             <span className="absolute top-0 -translate-y-1/2 inline-block px-3 py-1 text-xs font-mono font-bold bg-black border border-purple-500/50 text-purple-300 rounded-full shadow-sm">{job.year}</span>
+             <h4 className="text-xl font-bold text-white mt-2 group-hover:text-purple-300 transition-colors">{job.role}</h4>
+             <h5 className="text-purple-400 font-mono text-sm mb-4">{job.company}</h5>
+             <p className="text-gray-400 text-sm leading-relaxed">{job.description}</p>
            </div>
         </div>
     </motion.div>
   )
 }
 
+// 📌 Updated ProjectCard to support Images
 function ProjectCard({ project, index }: { project: any, index: number }) {
   return (
-    <motion.div variants={fadeInUp} whileHover={{ y: -10 }} className={`group relative bg-[#0a0a0a] border border-white/10 rounded-3xl overflow-hidden transition-all duration-500 hover:border-purple-500/50 hover:shadow-[0_10px_30px_-10px_rgba(168,85,247,0.2)] ${project.featured ? 'md:col-span-2 md:flex md:gap-8 bg-gradient-to-br from-[#111] to-[#0a0a0a]' : ''}`}>
-      <div className={`h-48 w-full bg-gradient-to-r from-gray-800 to-gray-900 relative overflow-hidden ${project.featured ? 'md:h-auto md:w-2/5' : ''}`}>
-         <div className="absolute inset-0 opacity-20 bg-[url('/circuit.png')] bg-cover mix-blend-overlay group-hover:scale-110 transition-transform duration-700"></div>
-         <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 border border-white/10 text-xs font-mono text-gray-300 backdrop-blur-md">
+    <motion.div 
+      variants={fadeInUp} 
+      whileHover={{ y: -10 }} 
+      className={`group relative bg-[#0a0a0a] border border-white/10 rounded-3xl overflow-hidden transition-all duration-500 hover:border-purple-500/50 hover:shadow-[0_10px_30px_-10px_rgba(168,85,247,0.2)] ${project.featured ? 'md:col-span-2 md:flex md:gap-8 bg-gradient-to-br from-[#111] to-[#0a0a0a]' : ''}`}
+    >
+      {/* --- 🖼️ Image Section --- */}
+      <div className={`h-48 w-full relative overflow-hidden bg-gray-900 ${project.featured ? 'md:h-auto md:w-2/5' : ''}`}>
+         {/* ใช้ img tag เพื่อดึงรูปจาก Link ใน config */}
+         <img 
+            src={project.image} 
+            alt={project.title} 
+            className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+         />
+         {/* Overlay gradient */}
+         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60"></div>
+
+         <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 border border-white/10 text-xs font-mono text-gray-300 backdrop-blur-md z-10 shadow-lg">
             {project.featured ? '🌟 Featured Build' : '📂 Project'}
          </div>
       </div>
+
+      {/* --- 📝 Content Section --- */}
       <div className={`p-8 flex flex-col relative z-10 ${project.featured ? 'md:w-3/5 md:py-12' : ''}`}>
         <div className="flex justify-between items-start mb-4">
            <h4 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 group-hover:from-purple-300 group-hover:to-blue-300 transition-all">{project.title}</h4>
