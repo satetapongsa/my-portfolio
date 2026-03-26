@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useSpring, useMotionTemplate, useMotionValue, Variants, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, Mail, Terminal, Code2, Database, Cpu, Layers, Server, ArrowDown, ExternalLink, Briefcase, User, Code, FolderGit2, MessageSquareQuote, ArrowUp, Facebook, Instagram } from "lucide-react";
+import { Github, Linkedin, Mail, Terminal, Code2, Database, Cpu, Layers, Server, ArrowDown, ExternalLink, Briefcase, User, Code, FolderGit2, MessageSquareQuote, ArrowUp, Facebook, Instagram, Award, ZoomIn, X } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState, useEffect, MouseEvent, useCallback } from "react";
 import { TypeAnimation } from 'react-type-animation';
@@ -89,6 +89,17 @@ const config = {
   testimonials: [
     { name: "Sarah Johnson", role: "CTO at StartupX" },
     { name: "Michael Chen", role: "Product Manager" }
+  ],
+  certificates: [
+    { image: "/certificate/THNCA Pentest.png" },
+    { image: "/certificate/THNCA Cyber Security Analyst.png" },
+    { image: "/certificate/introduction_ICIP.png" },
+    { image: "/certificate/Success Network Security.png" },
+    { image: "/certificate/Data Science.png" },
+    { image: "/certificate/Coursera CyberSecurity.png" },
+    { image: "/certificate/Cyber Security Fundemental.png" },
+    { image: "/certificate/coursena_wordpress.png" },
+    { image: "/certificate/Gemini_Cer.png" }
   ]
 };
 
@@ -99,7 +110,7 @@ export default function Home() {
   const containerRef = useRef(null);
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [lang, setLang] = useState<Language>('th');
+  const [lang, setLang] = useState<Language>('en');
   const t = translations[lang];
 
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -169,6 +180,7 @@ export default function Home() {
         <NavLink href="#about" icon={<User size={16} />} label={t.nav.about} />
         <NavLink href="#services" icon={<Layers size={16} />} label={t.nav.services} />
         <NavLink href="#projects" icon={<Code size={16} />} label={t.nav.work} />
+        <NavLink href="#certificates" icon={<Award size={16} />} label={t.nav.cert} />
         <div className="h-4 w-[1px] bg-white/20"></div>
         <NavLink href={config.links.github} icon={<Github size={16} />} label={t.nav.git} external />
       </motion.nav>
@@ -303,6 +315,20 @@ export default function Home() {
               />
             ))}
           </div>
+        </section>
+
+        {/* --- 🏆 SECTION 3.5: CERTIFICATES --- */}
+        <section id="certificates" className="py-32 relative">
+          <SectionHeader title={t.certificates.header} icon={<Award />} subtitle={t.certificates.subtitle} />
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {t.certificates.items.map((cert, index) => (
+              <CertificateCard 
+                key={index} 
+                cert={{ ...cert, ...config.certificates[index] }} 
+                t={t}
+              />
+            ))}
+          </motion.div>
         </section>
 
         {/* --- 💬 SECTION 4.5: TESTIMONIALS --- */}
@@ -562,8 +588,26 @@ function ProjectCard({ project, index, t }: { project: any, index: number, t: an
 }
 
 function NavLink({ href, icon, label, external }: { href: string, icon: React.ReactNode, label: string, external?: boolean }) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!external && href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.replace('#', '');
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Update URL hash without jumping
+        window.history.pushState(null, '', href);
+      }
+    }
+  };
+
   return (
-    <Link href={href} target={external ? "_blank" : undefined} className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors relative group">
+    <Link 
+      href={href} 
+      onClick={handleClick}
+      target={external ? "_blank" : undefined} 
+      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors relative group"
+    >
       {icon}
       <span>{label}</span>
       <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-purple-500 group-hover:w-full transition-all duration-300"></span>
@@ -586,6 +630,75 @@ function LanguageToggle({ lang, setLang }: { lang: Language, setLang: (l: Langua
         </motion.button>
       ))}
     </div>
+  );
+}
+
+// --- Certificate Card Component ---
+function CertificateCard({ cert, t }: { cert: any, t: any }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <motion.div
+        variants={fadeInUp}
+        whileHover={{ y: -10 }}
+        className="group relative bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden cursor-pointer"
+        onClick={() => setIsOpen(true)}
+      >
+        <div className="h-48 w-full relative overflow-hidden bg-gray-900">
+          <img 
+            src={cert.image} 
+            alt={cert.title} 
+            className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <div className="p-3 rounded-full bg-purple-500/80 backdrop-blur-md text-white scale-50 group-hover:scale-100 transition-transform duration-300">
+              <ZoomIn size={24} />
+            </div>
+          </div>
+        </div>
+        <div className="p-5 border-t border-white/5">
+          <h4 className="text-sm font-bold text-white mb-1 group-hover:text-purple-400 transition-colors line-clamp-1">{cert.title}</h4>
+          <p className="text-xs text-gray-500 font-mono italic">{cert.issuer}</p>
+        </div>
+      </motion.div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+            onClick={() => setIsOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-5xl w-full h-auto max-h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                onClick={() => setIsOpen(false)}
+                className="absolute -top-12 right-0 p-2 text-white hover:text-purple-400 transition-colors"
+              >
+                <X size={32} />
+              </button>
+              <img 
+                src={cert.image} 
+                alt={cert.title} 
+                className="max-w-full max-h-[85vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10" 
+              />
+              <div className="absolute -bottom-12 left-0 right-0 text-center">
+                <h4 className="text-xl font-bold text-white">{cert.title}</h4>
+                <p className="text-purple-400 font-mono text-sm">{cert.issuer}</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 

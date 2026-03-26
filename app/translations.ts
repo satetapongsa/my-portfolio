@@ -6,6 +6,7 @@ export const translations = {
       about: "เกี่ยวกับ",
       services: "บริการ",
       work: "ผลงาน",
+      cert: "เกียรติบัตร",
       git: "GitHub"
     },
     hero: {
@@ -124,6 +125,22 @@ export const translations = {
       btn: "เริ่มพูดคุยกับผม",
       copy: "สร้างสรรค์ด้วยความมุ่งมั่นและโค้ดคุณภาพ",
       toast: "คัดลอกอีเมลเรียบร้อย!"
+    },
+    certificates: {
+      header: "เกียรติบัตรและวุฒิบัตร",
+      subtitle: "การรับรองทักษะและความสำเร็จทางวิชาการ",
+      view: "ดูรูปขยาย",
+      items: [
+        { title: "Network Penetration Testing", issuer: "NCSA (สกมช.)" },
+        { title: "Cyber Security Analyst", issuer: "NCSA (สกมช.)" },
+        { title: "Critical Infrastructure Protection", issuer: "OPSWAT Academy" },
+        { title: "Network Security Excellence", issuer: "Success Network Security" },
+        { title: "Foundations of Data Science", issuer: "Data Science Academy" },
+        { title: "Cybersecurity Analyst", issuer: "Coursera & Google" },
+        { title: "Cyber Security Fundamentals", issuer: "Cyber Defense Foundation" },
+        { title: "WordPress CMS Development", issuer: "Coursera" },
+        { title: "Gemini AI Specialist (Mock)", issuer: "ของปลอมทำเล่นๆ แต่จะพัฒนาตัวเองเพื่อเอาของจริงมาให้ได้!" }
+      ]
     }
   },
   en: {
@@ -131,6 +148,7 @@ export const translations = {
       about: "About",
       services: "Services",
       work: "Work",
+      cert: "Certificates",
       git: "Git"
     },
     hero: {
@@ -249,6 +267,22 @@ export const translations = {
       btn: "Start a Conversation",
       copy: "Crafted with passion & code",
       toast: "Email Copied!"
+    },
+    certificates: {
+      header: "Certificates & Awards",
+      subtitle: "Recognition of skills and academic achievements",
+      view: "View Full Size",
+      items: [
+        { title: "Network Penetration Testing", issuer: "NCSA" },
+        { title: "Cyber Security Analyst", issuer: "NCSA" },
+        { title: "Critical Infrastructure Protection", issuer: "OPSWAT" },
+        { title: "Network Security Excellence", issuer: "Success Network Security" },
+        { title: "Foundations of Data Science", issuer: "Data Science Academy" },
+        { title: "Cybersecurity Analyst", issuer: "Coursera & Google" },
+        { title: "Cyber Security Fundamentals", issuer: "Cyber Defense Foundation" },
+        { title: "WordPress CMS Development", issuer: "Coursera" },
+        { title: "Gemini AI Specialist (Mock)", issuer: "Fake one, but I'll thrive till I get the real one!" }
+      ]
     }
   }
 };
